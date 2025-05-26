@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content2">
+    <form method="POST" action="{% url 'account:signup'%}">
+    {% csrf_token %}
+    {% include "account/form_errors.html" %}
+    ID:
+    <br>
+    <input name="username" type="text" value="{{ form.username.value|default_if_none:'' }}">
+    <br>
+    이메일 :
+    <br>
+    <input name="email" type="email" value="{{ form.email.value|default_if_none:'' }}">
+    <br>
+    마인크래프트 닉네임 1 :
+    <br>
+    <input name="nickname0" type="text" value="{{ form.first_name.value|default_if_none:'' }}">
+    <br>
+    마인크래프트 닉네임 2 :
+    <br>
+    <input name="nickname1" type="text" value="{{ form.last_name.value|default_if_none:'' }}">
+    <br>
+    비밀번호 :
+    <br>
+    <input name="password1" type="password" value="{{ form.password1.value|default_if_none:'' }}">
+    <br>
+    비밀번호 확인 :
+    <br>
+    <input name="password2" type="password" value="{{ form.password2.value|default_if_none:'' }}">
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="회원가입">
+</form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'main/index.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임페리움 야생 서버</title>
+    <link rel="icon" href="{% static 'asset/img/logo/icon.png'%}"/>
+    <link rel="apple-touch-icon" href="{% static 'asset/img/logo/icon.png'%}"/>
+    {% block style %}
+    {% endblock %}
+</head>
+
+
+<body>
+      
+    <div class="mainContainer"> <!--여기는 전체화면 컨테이너-->
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="taskbar-bg"> </div>
+            <div class="taskbar-container"> <!--여기는 위에 메뉴 컨테이너-->
+                <ol class="taskbar-ol">
+
+                    <il>
+                        <div class="visible" key="10"><!--여기는 위에 메뉴 하나의 컨테이너-->
+                            <div class="title_menu_asdf" key="10">
+                                <h2>
+                                    <a href="{% url 'main' %}">메인</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </il>
+
+                    <il>
+                        <div class="visible" key="0"><!--여기는 위에 메뉴 하나의 컨테이너-->
+                            <div class="title_menu" key="0">
+                                <h2>
+                                    <a href="#">리더보드</a>
+                                </h2>
+                            </div>
+            
+                            <div class="hidden" key="0">
+                                <h2>
+                                    <a href="{% url 'building_ranking' %}">건물 랭킹</a>
+                                </h2>
+                            </div>
+
+                            <div class="hidden" key="0">
+                                <h2>
+                                    <a href="{% url 'build_ranking' %}">건축 랭킹</a>
+                                </h2>
+                            </div>
+
+                            <div class="hidden" key="0">
+                                <h2>
+                                    <a href="{% url 'redstone_ranking' %}">레드스톤 랭킹</a>
+                                </h2>
+                            </div>
+
+                            <div class="last_hidden" key="0">
+                                <h2>
+                                    <a href="{% url 'command_ranking' %}">커멘드 랭킹</a>
+                                </h2>
+                            </div>
+            
+                        </div>
+                    </il>
+
+                    <il>
+                        <div class="visible" key="1"><!--여기는 위에 메뉴 하나의 컨테이너-->
+                            <div class="title_menu" key="1">
+                                <h2>
+                                    <a href="#">전시실</a>
+                                </h2>
+                            </div>
+            
+                            <div class="last_hidden" key="1">
+                                <h2>
+                                    <a href="{% url 'gallery' %}">갤러리</a>
+                                </h2>
+                            </div>
+            
+                        </div>
+                    </il>
+
+                    <il>
+                        <div class="visible" key="2"><!--여기는 위에 메뉴 하나의 컨테이너-->
+                            <div class="title_menu" key="2">
+                                <h2>
+                                    <a href="#">이 서버는</a>
+                                </h2>
+                            </div>
+            
+                            <div class="hidden" key="2">
+                                <h2>
+                                    <a href="{% url 'about_server:description' %}">서버 설명</a>
+                                </h2>
+                            </div>
+            
+                            <div class="hidden" key="2">
+                                <h2>
+                                    <a href="{% url 'about_server:rule' %}">서버 규칙</a>
+                                </h2>
+                            </div>
+            
+                            <div class="last_hidden" key="2">
+                                <h2>
+                                    <a href="{% url 'about_server:join' %}">서버 참여법</a>
+                                </h2>
+                            </div>
+            
+                        </div>
+                    </il>
+
+
+                    {% if user.is_authenticated %}
+                    <il>
+                        <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
+                            <div class="menu">
+                                <h2>
+                                    <a href="{% url 'account:detail' %}">{{ user.username }}</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </il>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                    <il>
+                        <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
+                            <div class="menu">
+                                <h2>
+                                    <a href="{% url 'account:logout' %}">(로그아웃)</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </il>
+                    {% else %}
+                    <il>
+                        <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
+                            <div class="menu">
+                                <h2>
+                                    <a href="{% url 'account:login' %}">로그인</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </il>
+                    {% endif %}
+
+                    {% if not user.is_authenticated %}
+                    <il>
+                        <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
+                            <div class="menu">
+                                <h2>
+                                    <a href="{% url 'account:signup' %}">회원가입</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </il>
+                    {% endif %}
+
+                    
+                </ol>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    <script src="{% static 'main/index.js' %}"></script>
+</body>
+</html>

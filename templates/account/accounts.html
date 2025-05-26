@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="content2">
+    <h1>{{ user.username }}</h1>
+{% if request.user == user %}
+    <a href="{% url 'account:signup_done' %}">회원 수정</a>
+    <form action="{% url 'account:signup_done' %}" method="POST">
+        {% csrf_token %}
+        <button class="btn btn-secondary">회원 탈퇴</button>
+    </form>
+    {% endif %}
+</div>
+
+
+{% endblock %}

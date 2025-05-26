@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content2">
+    <button onclick="history_back()"><h1 style="color: red;">뒤로가기</h1></button>
+    <h1>임페리움 야생 서버 - 참여법</h1>
+    <h2>여기는 임페리움 야생 서버 - 참여법입니다.</h2>
+    <br>
+    <ol>
+        <il><h3>1.먼저 사이트에 회원가입을 합니다</h3></il>
+        <il><h3>2.여기 잼민이가 만든 웹사이트라고해서 이메일 인증 안되는거로 생각하시는데 작동합니다.</h3></il>
+        <il><h3>3.그후 채널톡으로 아이디와 마인크래프트 닉네임을 보내주세요.</h3></il>
+        <il><h3>4.그리고 나서 관리자가 몇가지 동의를 구합니다다.</h3></il>
+        <br>
+        <il><h3>동의 항목:
+            <br>1.서버에서는 동의하지 않은 PvP가 절대 금지입니다.
+            <br>2.관리자의 마음에 따라서 밴이 됐다가 10초만에 풀릴수있습니다.
+        </h3></il>
+        <br>
+        <il><h3>그리고 나서는 서버에 화이트리스트가 추가됩니다.</h3></il>
+    </ol>
+    <br><br>
+    <a href="{% url 'main' %}" class="taskbar_2"><h1 style="color: red;">메인화면</h1></a>
+</div>
+
+<script>
+    function history_back() {
+        history.back();
+    }
+</script>
+
+{% endblock %}  

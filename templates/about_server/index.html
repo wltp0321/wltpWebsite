@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content3">
+    <a href="{% url 'about_server:description' %}" style="font-size: 35px;">서버 설명</a>
+    <a href="{% url 'about_server:rule' %}" style="font-size: 35px;">서버 규칙</a>
+    <a href="{% url 'about_server:join' %}" style="font-size: 35px;">서버 참여법</a>
+</div>
+{% endblock %}
