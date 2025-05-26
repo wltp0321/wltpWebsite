@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'account',
     'how_to_join',
     'description',
+    'notice',
     'rule',
     'django.contrib.admin',
     'django.contrib.auth',

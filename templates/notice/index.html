@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content2">
+    <h1>공지사항</h1>
+
+    {% if notices %}
+        {% for notice in notices %}
+            <div class="content3">
+                <div class="content3">
+                    <h2 class="visible">{{ notice.title }}</h2>
+                    {% if notice.is_pinned %}
+                        <span class="badge">[상단 고정]</span>
+                    {% endif %}
+                </div>
+                <div class="content2">
+                    <p style="font-size: 16px;">{{ notice.content|linebreaksbr }}</p>
+                </div>
+                <div>
+                    <small style="font-size: 10px;">작성일: {{ notice.created_at|date:"Y-m-d H:i" }}</small>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>공지사항이 없습니다.</p>
+    {% endif %}
+</div>
+{% endblock %}

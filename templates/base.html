@@ -126,15 +126,6 @@
                     {% endif %}
 
                     {% if user.is_authenticated %}
-                    <il>
-                        <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
-                            <div class="menu">
-                                <h2>
-                                    <a href="{% url 'account:logout' %}">(로그아웃)</a>
-                                </h2>
-                            </div>
-                        </div>
-                    </il>
                     {% else %}
                     <il>
                         <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
@@ -147,19 +138,16 @@
                     </il>
                     {% endif %}
 
-                    {% if not user.is_authenticated %}
                     <il>
                         <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
                             <div class="menu">
                                 <h2>
-                                    <a href="{% url 'account:signup' %}">회원가입</a>
+                                    <a href="{% url 'notice:list' %}">공지</a>
                                 </h2>
                             </div>
                         </div>
                     </il>
-                    {% endif %}
 
-                    
                 </ol>
         </div>
         {% block content %}

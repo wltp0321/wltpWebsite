@@ -46,6 +46,7 @@ urlpatterns = [
     path('rules/', server_rule, name='rule'),
     path('descriptions/', server_descriptions, name='descriptions'),
     path('how_to_join/', server_how_to_join, name='how_to_join'),
+    path('notices/', include('notice.urls')),
     path('account/', include("account.urls")),  # account 앱 포함
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
