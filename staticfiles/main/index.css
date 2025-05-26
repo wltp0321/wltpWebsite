@@ -1,0 +1,263 @@
+@font-face {
+    font-family: 'HakgyoansimAllimjangTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimAllimjangTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@keyframes bounceScale {
+    0%, 100% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(1.05) translateY(0px); /* 살짝 커지고 위로 튐 */
+    }
+}
+
+
+* {
+    font-size: 24px;
+    font-family: 'HakgyoansimAllimjangTTF-B';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div {           
+    margin-bottom: 5px;
+}
+
+img {
+    width: 15vw;
+    height: auto;
+    object-fit: cover;
+}
+
+.content3 {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(128, 161, 250);
+    text-align: center;
+}
+
+
+.content2 {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(216, 216, 216);
+    text-align: center;
+}
+
+.player {
+    float: left;
+}
+/*a*/
+
+a {
+    text-decoration-line: none;
+    display: block;
+}
+
+a:link {
+    color : black;
+}
+
+a:visited {
+    color : black;
+}
+
+a:hover {
+    color : black;
+}
+
+a:active {
+    color : black;
+}
+
+li {
+    min-width: 100px; /* 최소 크기 설정 */
+}
+
+.taskbar-ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    list-style-position: inside;
+}
+
+/*hidden*/
+
+.hidden {
+    text-align: center;
+    background-color: rgba(185, 185, 185, 0.5);
+    height: auto;
+    flex-direction: column;
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hidden:hover {
+    animation: bounceScale 0.5s ease-in-out;
+}
+
+
+.last_hidden {
+    text-align: center;
+    background-color: rgba(185, 185, 185, 0.5);
+    height: auto;
+    flex-direction: column;
+    display: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.last_hidden:hover {
+    animation: bounceScale 0.5s ease-in-out;
+}
+
+
+/*menus*/
+
+.title_menu {
+    border-radius: 10px;
+    background-color: rgba(185, 185, 185, 0.5);
+    height: 40px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.title_menu_asdf:hover {
+    border-radius: 10px;
+}
+
+.title_menu_asdf {
+    border-radius: 10px;
+    background-color: rgba(185, 185, 185, 0.5);
+    height: 40px;
+    text-align: center; 
+    margin: 0;
+    padding: 0;
+}
+
+.title_menu:hover {
+    border-radius: 10px 10px 0px 0px;
+    animation: bounceScale 0.5s ease-in-out;
+}
+
+.menu:hover {
+    animation: bounceScale 0.5s ease-in-out;
+}
+
+.menu {
+    border-radius: 10px;
+    background-color: rgba(185, 185, 185, 0.5);
+    height: 40px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.title_menu h2 a,.menu h2 a {    
+    line-height: 48px;
+}
+
+/*containers*/
+.taskbar-bg {
+    display: flex;
+    background-color: rgba(185, 185, 185, 0.5);
+    border-radius: 0px 0px 20px 20px;
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    z-index: -10;
+}
+
+.taskbar-container {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+.visible {
+    width: 150px;
+    margin: 40px;
+}
+
+.hamburger {
+    display: none;
+    position: fixed;
+}
+
+
+@media screen and (max-width: 768px) {
+    /* .taskbar-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow : scroll;
+        width: 100%;
+        background-color: rgba(185, 185, 185, 0.9);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transition: all 0.3s ease-in-out;
+    } */
+
+    * {
+        font-size: 14px;
+    }
+
+    .visible {
+        width: 80px;
+        margin: 20px;
+        
+    }
+
+    .title_menu {
+        padding: 3px;
+        
+    }
+
+
+    /* .taskbar-container.active {
+        display: flex;
+        position: fixed;
+        opacity: 1;
+        transform: translateY(0);
+    } */
+
+    /* .hamburger {
+        display: block;
+        position: sticky;
+        top: 20px;
+        left: 20px;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+    } */
+
+    .hidden {
+        padding: 3px;
+        display: flex;
+        text-align: center;
+    }
+
+    .last_hidden {
+        padding: 3px;
+        text-align: center;
+        display: flex;
+    }
+}
+
+
