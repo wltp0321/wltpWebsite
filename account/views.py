@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import logout, authenticate, login, get_user_model
-from account.forms import UserForm
+from account.forms import UserForm, CustomUserChangeForm
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from django.contrib.auth.hashers import check_password
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 
 # SMTP 관련 인증
@@ -75,18 +76,37 @@ def activate(request, uidb64, token):
         return redirect("/")
     else:
         return render(request, 'base.html', {'error' : '계정 활성화 오류'})
-    return render(request, "{% url 'main' %}")
 
 
 def signup_done(request):
     return render(request, 'account/signup_succfully.html')
   
-@require_POST
-def delete(request):
-	if request.user.is_authenticated:
-		request.user.delete()
-		auth_logout(request) # session 지우기. 단 탈퇴후 로그아웃순으로 처리. 먼저 로그아웃하면 해당 request 객체 정보가 없어져서 삭제가 안됨.
-	return redirect('/')
+def delete_account(request):
+    if request.method == "POST":
+        password = request.POST.get("password")
+
+        user = authenticate(username=request.user.username, password=password)
+        if user:
+            request.user.delete()      # 사용자 삭제
+            logout(request)            # 세션 종료
+            messages.success(request, "회원 탈퇴가 완료되었습니다.")
+            return redirect("main")    # 홈으로 리디렉션
+        else:
+            messages.error(request, "비밀번호가 일치하지 않습니다.")
+
+    return render(request, "account/delete_account.html")
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = CustomUserChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('account:detail')  # 수정 후 이동할 페이지
+    else:
+        form = CustomUserChangeForm(instance=request.user)
+    return render(request, 'account/edit_profile.html', {'form': form})
+
 
 def detail(request):
     return render(request, 'account/accounts.html')

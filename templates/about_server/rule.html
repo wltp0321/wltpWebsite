@@ -6,15 +6,21 @@
     <h1>임페리움 야생 서버 - 규칙</h1>
     <h2>여기는 임페리움 야생 서버 - 규칙입니다!</h2>
     <br>
-    <ol type="1">
+    <ol type="1">    
+        {% for rule in rules %}
+            <li>{{ rule.content }}</li>
+        {% endfor %}
+    </ol>
+
+    <!-- <ol type="1">
         <li>서로 상의가 되지 않은 PvP를 할시 당한 사람이 밴기간 정합니다..</li>
         <li>다른사람 건축물 손상시 건축물 주인이 밴 기간 정합니다.</li>
         <li>실수로 라도 주민작 해둔 주민을 죽이면 네더라이트 블럭 1세트로 갚습니다.</li>
         <li>저희 서버는 현금으로 원하는 사람 밴이 가능합니다.</li>
-        <li>매일매일 시간당 가격이 다르니 채널톡으로 문의바랍니다.</li>
-    </ol>
+        <li>    </li>
+    </ol> -->
     <br><br>
-    <a href="{% url 'about_server:join' %}" class="taskbar_2"><h1 style="color: red;">서버 참여법</h1></a>
+    <a href="{% url 'how_to_join' %}" class="taskbar_2"><h1 style="color: red;">서버 참여법</h1></a>
 </div>
 
 <script>

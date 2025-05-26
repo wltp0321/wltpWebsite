@@ -29,7 +29,10 @@ from building_ranking.views import building_ranking_main
 from redstone_ranking.views import redstone_ranking_main
 from command_ranking.views import command_ranking_main
 from account.views import account_main
-from about_server.views import about_server_main
+from rule.views import server_rule
+from how_to_join.views import server_how_to_join
+from description.views import server_descriptions
+
 
 
 urlpatterns = [
@@ -40,8 +43,10 @@ urlpatterns = [
     path('build_ranking/', build_ranking_main, name='build_ranking'),
     path('redstone_ranking/', redstone_ranking_main, name='redstone_ranking'),
     path('command_ranking/', command_ranking_main, name='command_ranking'),
+    path('rules/', server_rule, name='rule'),
+    path('descriptions/', server_descriptions, name='descriptions'),
+    path('how_to_join/', server_how_to_join, name='how_to_join'),
     path('account/', include("account.urls")),  # account 앱 포함
-    path('about_server/', include("about_server.urls")),  # about_server 앱 포함
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]

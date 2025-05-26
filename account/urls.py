@@ -11,6 +11,7 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('details', views.detail, name='detail'),
     path('signup_done/', views.signup_done, name='signup_done'),
-    path('delete_account', views.delete, name='delete_account'),
+    path('delete_account', views.delete_account, name='delete_account'),
     path('activate/<str:uidb64>/<str:token>/', views.activate, name="activate"),
+    path('edit/', views.edit_profile, name='edit'),
 ]

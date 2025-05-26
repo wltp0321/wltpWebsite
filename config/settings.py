@@ -52,7 +52,9 @@ INSTALLED_APPS = [
     'command_ranking',
     'gallery',
     'account',
-    'about_server',
+    'how_to_join',
+    'description',
+    'rule',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,9 +129,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -140,7 +142,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -149,7 +150,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOCALE_PATHS = (BASE_DIR / "locale",)
 
-STATICFILES_DIRS = (os.path.join(STATIC_ROOT))
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # 배포용 폴더 (임의 지정)
+STATICFILES_DIRS = [str(BASE_DIR / 'static')]  # 개발 중 정적 파일 폴더
+
+
 LOGIN_REDIRECT_URL = '/'
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
