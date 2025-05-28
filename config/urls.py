@@ -22,6 +22,7 @@ from django.shortcuts import redirect
 from django.views.static import serve
 from django.urls import re_path as url
 
+from . import views
 from main.views import main_main
 from gallery.views import gallery_main
 from build_ranking.views import build_ranking_main
@@ -38,6 +39,7 @@ from description.views import server_descriptions
 urlpatterns = [
     path('admin/', admin.site.urls),  # 관리자 페이지
     path('', main_main, name='main'),  # 메인 페이지
+path('ads.txt',views.Ads),
     path('building_ranking/', building_ranking_main, name='building_ranking'),
     path('gallery/', gallery_main, name='gallery'),
     path('build_ranking/', build_ranking_main, name='build_ranking'),

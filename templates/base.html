@@ -8,6 +8,7 @@
     <title>임페리움 야생 서버</title>
     <link rel="icon" href="{% static 'asset/img/logo/icon.png'%}"/>
     <link rel="apple-touch-icon" href="{% static 'asset/img/logo/icon.png'%}"/>
+<meta name="google-adsense-account" content="ca-pub-2878829375668478">
     {% block style %}
     {% endblock %}
 </head>
@@ -30,7 +31,7 @@
                             </div>
                         </div>
                     </il>
-
+                
                     <il>
                         <div class="visible" key="0"><!--여기는 위에 메뉴 하나의 컨테이너-->
                             <div class="title_menu" key="0">
@@ -66,22 +67,7 @@
                         </div>
                     </il>
 
-                    <il>
-                        <div class="visible" key="1"><!--여기는 위에 메뉴 하나의 컨테이너-->
-                            <div class="title_menu" key="1">
-                                <h2>
-                                    <a href="#">전시실</a>
-                                </h2>
-                            </div>
-            
-                            <div class="last_hidden" key="1">
-                                <h2>
-                                    <a href="{% url 'gallery' %}">갤러리</a>
-                                </h2>
-                            </div>
-            
-                        </div>
-                    </il>
+
 
                     <il>
                         <div class="visible" key="2"><!--여기는 위에 메뉴 하나의 컨테이너-->
@@ -112,7 +98,37 @@
                         </div>
                     </il>
 
+                    <il>
 
+                        <div class="visible" key="1"><!--여기는 위에 메뉴 하나의 컨테이너-->
+
+                            <div class="title_menu" key="1">
+
+                                <h2>
+
+                                    <a href="#">전시실</a>
+
+                                </h2>
+
+                            </div>
+
+            
+
+                            <div class="last_hidden" key="1">
+
+                                <h2>
+
+                                    <a href="{% url 'gallery' %}">갤러리</a>
+
+                                </h2>
+
+                            </div>
+
+            
+
+                        </div>
+
+                    </il>
                     {% if user.is_authenticated %}
                     <il>
                         <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->

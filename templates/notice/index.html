@@ -7,13 +7,13 @@
     {% if notices %}
         {% for notice in notices %}
             <div class="content3">
-                <div class="content3">
+                <div class="content3" style="padding: 15px;">
                     <h2>{{ notice.title }}</h2>
                     {% if notice.is_pinned %}
                         <span class="badge">[상단 고정]</span>
                     {% endif %}
                 </div>
-                <div class="content2">
+                <div class="content2", style="width:  300px; padding; 15px;">
                     <p style="font-size: 16px;">{{ notice.content|linebreaksbr }}</p>
                 </div>
                 <div>
