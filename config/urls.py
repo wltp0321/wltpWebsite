@@ -40,11 +40,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),  # 관리자 페이지
     path('', main_main, name='main'),  # 메인 페이지
     path('ads.txt',views.Ads),
-    path('building_ranking/', building_ranking_main, name='building_ranking'),
+    #path('building_ranking/', building_ranking_main, name='building_ranking'),
     path('gallery/', gallery_main, name='gallery'),
-    path('build_ranking/', build_ranking_main, name='build_ranking'),
-    path('redstone_ranking/', redstone_ranking_main, name='redstone_ranking'),
-    path('command_ranking/', command_ranking_main, name='command_ranking'),
+    #path('build_ranking/', build_ranking_main, name='build_ranking'),
+    #path('redstone_ranking/', redstone_ranking_main, name='redstone_ranking'),
+    #path('command_ranking/', command_ranking_main, name='command_ranking'),
     path('rules/', server_rule, name='rule'),
     path('descriptions/', server_descriptions, name='descriptions'),
     path('how_to_join/', server_how_to_join, name='how_to_join'),
