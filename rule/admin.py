@@ -4,4 +4,4 @@ from .models import ServerRule
 
 @admin.register(ServerRule)
 class ServerRuleAdmin(admin.ModelAdmin):
-    list_display = ('order', 'content')
+    list_display = ('order', 'title', 'content')

@@ -1,31 +1,53 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
+{% block title %}서버 규칙 - WLTP World{% endblock %}
 {% block content %}
-<div class="content2">
-    <button onclick="history_back()"><h1 style="color: red;">뒤로가기</h1></button>
-    <h1>임페리움 야생 서버 - 규칙</h1>
-    <h2>여기는 임페리움 야생 서버 - 규칙입니다!</h2>
-    <br>
-    <ol type="1">    
-        {% for rule in rules %}
-            <li>{{ rule.content }}</li>
-        {% endfor %}
-    </ol>
+<!-- Hero Section Component -->
+<section class="section-header">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h1 class="font-pixel text-4xl md:text-5xl mb-6 tracking-wider text-shadow-pixel">
+            서버 규칙
+        </h1>
+        <p class="text-xl md:text-2xl opacity-90 leading-relaxed max-w-3xl mx-auto">
+            모든 플레이어가 즐겁게 게임할 수 있도록<br class="hidden md:block">
+            아래 규칙을 꼭 지켜주세요.
+        </p>
+    </div>
+</section>
 
-    <!-- <ol type="1">
-        <li>서로 상의가 되지 않은 PvP를 할시 당한 사람이 밴기간 정합니다..</li>
-        <li>다른사람 건축물 손상시 건축물 주인이 밴 기간 정합니다.</li>
-        <li>실수로 라도 주민작 해둔 주민을 죽이면 네더라이트 블럭 1세트로 갚습니다.</li>
-        <li>저희 서버는 현금으로 원하는 사람 밴이 가능합니다.</li>
-        <li>    </li>
-    </ol> -->
-    <br><br>
-    <a href="{% url 'how_to_join' %}" class="taskbar_2"><h1 style="color: red;">서버 참여법</h1></a>
-</div>
-
-<script>
-    function history_back() {
-        history.back();
-    }
-</script>
-{% endblock %}
+<!-- Content Section Component -->
+<section class="content-section">
+    <div class="max-w-4xl mx-auto px-4">
+        <!-- Rules Card Component -->
+        <div class="card-component p-8 mb-12">
+            <h2 class="font-pixel text-2xl text-mc-blue mb-8 tracking-wide">기본 규칙</h2>
+            <div class="space-y-6">
+                {% for rule in rules %}
+                    <div class="rule-card group hover:shadow-toss-xl transition-all duration-200">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-mc-blue to-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">{{ rule.order }}</div>
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-mc-blue mb-3 text-lg group-hover:text-blue-600 transition-colors">{{ rule.title }}</h3>
+                                <p class="text-gray-600 leading-relaxed">{{ rule.content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Warning Card Component -->
+        <div class="card-component p-8 text-center">
+            <div class="flex items-center justify-center space-x-4 mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-mc-red to-red-600 rounded-3xl flex items-center justify-center">
+                    <span class="text-3xl">⚠️</span>
+                </div>
+                <h3 class="font-pixel text-2xl text-mc-red">규칙 위반 시 제재</h3>
+            </div>
+            <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                규칙 위반 시 경고, 임시/영구 밴 등 제재가 있을 수 있습니다.
+                <br>모든 플레이어가 즐겁게 게임할 수 있도록 협조해 주세요.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -1,32 +1,72 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% block title %}서버 소개 - 임페리움 서버{% endblock %}
 {% block content %}
-<div class="content2">
-    <button onclick="history_back()"><h1 style="color: red;">뒤로가기</h1></button>
-    <h1>임페리움 야생 서버 - 설명</h1>
-    <h2>여기는 임페리움 야생 서버 설명입니다.</h2>
-    <br>
-    <ol type="1">
-        {% for desc in descriptions %}
-            <li>{{ desc.content }}</li>
-        {% endfor %}
-    </ol>
+<!-- Hero Section Component -->
+<section class="section-header">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h1 class="font-pixel text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6 tracking-wider text-shadow-pixel">
+            서버 소개
+        </h1>
+        <p class="text-lg md:text-xl lg:text-2xl opacity-90 leading-relaxed max-w-3xl mx-auto px-4">
+            임페리움 서버는 창의력과 커뮤니티를 중시하는<br class="hidden md:block">
+            마인크래프트 서버입니다.
+        </p>
+    </div>
+</section>
 
-    <!-- <ol>
-        <il><h3>이 서버는 핑니가 기획한 서버입니다.</h3></il>
-        <il><h3>이 서버의 주제는 건축 + 야생 입니다.</h3></il>
-        <il><h3>서버 주소는 host.wltp.world:1105입니다.</h3></il>
-        <il><h3>BE는 host.wltp.world, 포트가 10001입니다.</h3></il>
-        <il><h3>폰, 닌텐도, 플스 등도 들어오실 수 있습니다.</h3></il>
-        <il><h3>화이트리스트는 서버 참여법에서 알려드리겠습니다.</h3></il>
-        <il><h3></h3></il>
-    </ol> -->
-    <br><br>
-    <a href="{% url 'rule' %}" class="taskbar_2"><h1 style="color: red;">서버 규칙</h1></a>
-</div>
+<!-- Content Section Component -->
+<section class="content-section">
+    <div class="max-w-4xl mx-auto px-4">
+        <!-- Features Card Component -->
+        <div class="card-component p-6 md:p-8 mb-8 md:mb-12">
+            <h2 class="font-pixel text-xl md:text-2xl text-mc-blue mb-6 md:mb-8 tracking-wide">서버 특징</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                {% for description in descriptions %}
+                    <div class="flex items-start space-x-3 md:space-x-4 p-4 md:p-6 bg-mc-gray rounded-xl md:rounded-2xl border border-gray-200 group hover:shadow-toss-lg transition-all duration-200">
+                        <span class="text-xl md:text-2xl">{{ description.emoji }}</span>
+                        <div>
+                            <h3 class="font-semibold text-mc-blue mb-2 group-hover:text-blue-600 transition-colors text-sm md:text-base">{{ description.title }}</h3>
+                            <p class="text-gray-600 text-xs md:text-sm leading-relaxed">{{ description.content }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
 
-<script>
-    function history_back() {
-        history.back();
-    }
-</script>
-{% endblock %}
+        <!-- Server Info Card Component -->
+        <div class="card-component p-6 md:p-8">
+            <h2 class="font-pixel text-xl md:text-2xl text-mc-blue mb-6 md:mb-8 tracking-wide">서버 정보</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div class="stats-card p-4 md:p-6 group hover:shadow-toss-lg transition-all duration-200">
+                    <div class="flex items-center space-x-2 md:space-x-3 mb-3 md:mb-4">
+                        <span class="text-xl md:text-2xl">🌐</span>
+                        <h3 class="font-pixel text-base md:text-lg text-mc-blue">서버 주소</h3>
+                    </div>
+                    <p class="text-lg md:text-2xl font-bold font-pixel text-mc-blue group-hover:scale-105 transition-transform">host.wltp.world:1105</p>
+                </div>
+                <div class="stats-card p-4 md:p-6 group hover:shadow-toss-lg transition-all duration-200">
+                    <div class="flex items-center space-x-2 md:space-x-3 mb-3 md:mb-4">
+                        <span class="text-xl md:text-2xl">🎮</span>
+                        <h3 class="font-pixel text-base md:text-lg text-mc-blue">게임 버전</h3>
+                    </div>
+                    <p class="text-lg md:text-2xl font-bold font-pixel text-mc-blue group-hover:scale-105 transition-transform">1.7 ~ 1.21.6</p>
+                </div>
+                <div class="stats-card p-4 md:p-6 group hover:shadow-toss-lg transition-all duration-200">
+                    <div class="flex items-center space-x-2 md:space-x-3 mb-3 md:mb-4">
+                        <span class="text-xl md:text-2xl">👤</span>
+                        <h3 class="font-pixel text-base md:text-lg text-mc-blue">최대 인원</h3>
+                    </div>
+                    <p class="text-lg md:text-2xl font-bold font-pixel text-mc-blue group-hover:scale-105 transition-transform">100명</p>
+                </div>
+                <div class="stats-card p-4 md:p-6 group hover:shadow-toss-lg transition-all duration-200">
+                    <div class="flex items-center space-x-2 md:space-x-3 mb-3 md:mb-4">
+                        <span class="text-xl md:text-2xl">💬</span>
+                        <h3 class="font-pixel text-base md:text-lg text-mc-blue">디스코드</h3>
+                    </div>
+                    <a href="https://discord.com/invite/VEVpENDU96" class="text-lg md:text-2xl font-bold font-pixel text-mc-blue hover:text-blue-600 transition-colors group-hover:scale-105 transition-transform">지세 커뮤니티</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -4,4 +4,4 @@ from .models import ServerHowToJoin
 
 @admin.register(ServerHowToJoin)
 class ServerHowToJoinAdmin(admin.ModelAdmin):
-    list_display = ('order', 'content')
+    list_display = ('order', 'title', 'content0')

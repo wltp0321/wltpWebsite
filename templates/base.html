@@ -1,176 +1,120 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
+<html lang="ko">
 <head>
-    <link rel="stylesheet" href="{% static 'main/index.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>임페리움 야생 서버</title>
-    <link rel="icon" href="{% static 'asset/img/logo/icon.png'%}"/>
-    <link rel="apple-touch-icon" href="{% static 'asset/img/logo/icon.png'%}"/>
-<meta name="google-adsense-account" content="ca-pub-2878829375668478">
-    {% block style %}
-    {% endblock %}
+    <title>{% block title %}임페리움 - 마인크래프트 서버{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mc-blue': '#1976d2',
+                        'mc-dark': '#23272a',
+                        'mc-light': '#f8fafc',
+                        'mc-accent': '#cddc39',
+                        'mc-gold': '#ffd600',
+                        'mc-red': '#e53935',
+                        'mc-gray': '#f1f5f9'
+                    },
+                    fontFamily: {
+                        'pixel': ['Press Start 2P', 'monospace'],
+                        'sans': ['Pretendard', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'toss': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+                        'toss-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        'toss-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    {% block extra_css %}{% endblock %}
 </head>
-
-
-<body>
-      
-    <div class="mainContainer"> <!--여기는 전체화면 컨테이너-->
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
-        <div class="taskbar-bg"> </div>
-            <div class="taskbar-container"> <!--여기는 위에 메뉴 컨테이너-->
-                <ol class="taskbar-ol">
-
-                    <il>
-                        <div class="visible" key="10"><!--여기는 위에 메뉴 하나의 컨테이너-->
-                            <div class="title_menu_asdf" key="10">
-                                <h2>
-                                    <a href="{% url 'main' %}">메인</a>
-                                </h2>
-                            </div>
-                        </div>
-                    </il>
-                
-                    <il>
-                        <div class="visible" key="0"><!--여기는 위에 메뉴 하나의 컨테이너-->
-                            <div class="title_menu" key="0">
-                                <h2>
-                                    <a href="#">리더보드</a>
-                                </h2>
-                            </div>
-            
-                            <div class="hidden" key="0">
-                                <h2>
-                                    <a href="{% url 'building_ranking' %}">건물 랭킹</a>
-                                </h2>
-                            </div>
-
-                            <div class="hidden" key="0">
-                                <h2>
-                                    <a href="{% url 'build_ranking' %}">건축 랭킹</a>
-                                </h2>
-                            </div>
-
-                            <div class="hidden" key="0">
-                                <h2>
-                                    <a href="{% url 'redstone_ranking' %}">레드스톤 랭킹</a>
-                                </h2>
-                            </div>
-
-                            <div class="last_hidden" key="0">
-                                <h2>
-                                    <a href="{% url 'command_ranking' %}">커멘드 랭킹</a>
-                                </h2>
-                            </div>
-            
-                        </div>
-                    </il>
-
-
-
-                    <il>
-                        <div class="visible" key="2"><!--여기는 위에 메뉴 하나의 컨테이너-->
-                            <div class="title_menu" key="2">
-                                <h2>
-                                    <a href="#">이 서버는</a>
-                                </h2>
-                            </div>
-            
-                            <div class="hidden" key="2">
-                                <h2>
-                                    <a href="{% url 'descriptions' %}">서버 설명</a>
-                                </h2>
-                            </div>
-            
-                            <div class="hidden" key="2">
-                                <h2>
-                                    <a href="{% url 'rule' %}">서버 규칙</a>
-                                </h2>
-                            </div>
-            
-                            <div class="last_hidden" key="2">
-                                <h2>
-                                    <a href="{% url 'how_to_join' %}">서버 참여법</a>
-                                </h2>
-                            </div>
-            
-                        </div>
-                    </il>
-
-                    <il>
-
-                        <div class="visible" key="1"><!--여기는 위에 메뉴 하나의 컨테이너-->
-
-                            <div class="title_menu" key="1">
-
-                                <h2>
-
-                                    <a href="#">전시실</a>
-
-                                </h2>
-
-                            </div>
-
-            
-
-                            <div class="last_hidden" key="1">
-
-                                <h2>
-
-                                    <a href="{% url 'gallery' %}">갤러리</a>
-
-                                </h2>
-
-                            </div>
-
-            
-
-                        </div>
-
-                    </il>
-                    {% if user.is_authenticated %}
-                    <il>
-                        <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
-                            <div class="menu">
-                                <h2>
-                                    <a href="{% url 'account:detail' %}">{{ user.username }}</a>
-                                </h2>
-                            </div>
-                        </div>
-                    </il>
-                    {% endif %}
-
-                    {% if user.is_authenticated %}
-                    {% else %}
-                    <il>
-                        <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
-                            <div class="menu">
-                                <h2>
-                                    <a href="{% url 'account:login' %}">로그인</a>
-                                </h2>
-                            </div>
-                        </div>
-                    </il>
-                    {% endif %}
-
-                    <il>
-                        <div class="visible"><!--여기는 위에 메뉴 하나의 컨테이너-->
-                            <div class="menu">
-                                <h2>
-                                    <a href="{% url 'notice:list' %}">공지</a>
-                                </h2>
-                            </div>
-                        </div>
-                    </il>
-
-                </ol>
+<body class="bg-mc-light font-sans antialiased">
+    <!-- Navigation Component -->
+    <header class="sticky top-0 z-50 flex justify-center py-4 md:py-6 px-4">
+        <nav class="bg-white rounded-2xl md:rounded-3xl shadow-toss-lg border border-gray-200 px-4 py-3 md:px-8 md:py-4 w-full max-w-4xl">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
+                <a href="/" class="font-pixel text-mc-blue text-lg md:text-xl tracking-wider hover:text-blue-600 transition-all duration-200">
+                    WLTP WORLD
+                </a>
+                <ul class="flex flex-wrap justify-center md:justify-end items-center space-x-2 md:space-x-3">
+                    <li><a href="{% url 'main' %}" class="nav-link-component">홈</a></li>
+                    <li class="hidden md:block text-gray-300">|</li>
+                    <li><a href="{% url 'descriptions' %}" class="nav-link-component">서버 소개</a></li>
+                    <li class="hidden md:block text-gray-300">|</li>
+                    <li><a href="{% url 'rule' %}" class="nav-link-component">규칙</a></li>
+                    <li class="hidden md:block text-gray-300">|</li>
+                    <li><a href="{% url 'how_to_join' %}" class="nav-link-component">참여 방법</a></li>
+                    <li class="hidden md:block text-gray-300">|</li>
+                    <li><a href="/ranking" class="nav-link-component">랭킹</a></li>
+                    <li class="hidden md:block text-gray-300">|</li>
+                    <li><a href="{% url 'notice:list' %}" class="nav-link-component">공지사항</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="min-h-screen">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer Component -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <div class="text-center">
+                <p class="font-pixel text-sm text-gray-600 mb-2">&copy; 2025 임페리움 서버</p>
+                <p class="text-xs text-gray-500">임페리움 서버 커뮤니티 서버</p>
+            </div>
         </div>
-        {% block content %}
-        {% endblock %}
-    </div>
-
-
-    <script src="{% static 'main/index.js' %}"></script>
+    </footer>
+    
+    <style>
+        /* Toss UI Components */
+        .nav-link-component {
+            @apply px-3 md:px-5 py-2 md:py-3 text-gray-700 font-bold rounded-xl transition-all duration-200 hover:bg-mc-blue hover:text-white hover:shadow-toss text-sm md:text-base;
+        }
+        
+        .btn-primary {
+            @apply bg-mc-blue text-white px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-semibold shadow-toss hover:shadow-toss-lg transition-all duration-200 hover:bg-blue-600 text-sm md:text-base;
+        }
+        
+        .btn-secondary {
+            @apply bg-white text-mc-blue px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-semibold border-2 border-mc-blue shadow-toss hover:shadow-toss-lg transition-all duration-200 hover:bg-mc-blue hover:text-white text-sm md:text-base;
+        }
+        
+        .card-component {
+            @apply bg-white rounded-2xl md:rounded-3xl shadow-toss hover:shadow-toss-lg transition-all duration-300 border border-gray-100;
+        }
+        
+        .section-header {
+            @apply bg-gradient-to-r from-mc-blue to-blue-600 text-white py-12 md:py-20;
+        }
+        
+        .content-section {
+            @apply py-8 md:py-16 bg-white;
+        }
+        
+        .stats-card {
+            @apply bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-toss hover:shadow-toss-lg transition-all duration-200 border border-gray-100;
+        }
+        
+        .rule-card {
+            @apply bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-toss hover:shadow-toss-lg transition-all duration-200 border border-gray-100;
+        }
+        
+        .notice-card {
+            @apply bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-toss hover:shadow-toss-lg transition-all duration-200 border border-gray-100;
+        }
+    </style>
+    
+    {% block extra_js %}{% endblock %}
 </body>
-</html>
+</html> 

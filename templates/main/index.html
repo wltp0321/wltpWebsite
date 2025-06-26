@@ -1,32 +1,108 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
+{% block title %}WLTP World - 마인크래프트 서버{% endblock %}
 {% block content %}
-<div class="content3">
-    <h1>서버 주소</h1>
-    <h2>JAVA : host.wltp.world:1105</h2><br>
+<!-- Hero Section Component -->
+<section class="section-header">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <h1 class="font-pixel text-3xl md:text-5xl lg:text-7xl mb-6 md:mb-8 tracking-wider text-shadow-pixel">
+            WLTP WORLD
+        </h1>
+        <p class="text-lg md:text-2xl lg:text-3xl mb-8 md:mb-12 opacity-90 leading-relaxed max-w-4xl mx-auto px-4">
+            평화와 커뮤니티가 만나는<br class="hidden md:block">
+            마인크래프트 서버
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+            <a href="/how_to_join" class="btn-primary text-base md:text-lg">
+                🎮 지금 시작하기
+            </a>
+            <a href="/description" class="btn-secondary text-base md:text-lg">
+                📖 서버 소개
+            </a>
+        </div>
+    </div>
+</section>
 
-    <h2>BEDROCK : host.wltp.world </h2>
-    <h2>Port : 10001</h2><br>
-
-    <h2>MAP : host.wltp.world:10002</h2>
-</div>
-<div class="content2">
-    <h1>서버 플레이어 리스트</h1>
-    <br>
-    <ol class="player" style="list-style: none;">
-        {% for player in players %}
-        <li class="player">
-            <div >
-                <a href="{{ player.skinurl }}">{{ player.nickname }}</a>
+<!-- Features Section Component -->
+<section class="content-section">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-pixel text-2xl md:text-3xl text-center text-mc-blue mb-12 md:mb-16 tracking-wide">서버 특징</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="card-component p-6 md:p-8 text-center group">
+                <div class="w-16 h-20 md:w-20 md:h-20 bg-gradient-to-br from-mc-blue to-blue-600 rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <span class="text-2xl md:text-3xl">🌎</span>
+                </div>
+                <h3 class="font-pixel text-lg md:text-xl text-mc-blue mb-3 md:mb-4">창의적인 건축</h3>
+                <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                    다양한 플러그인과 도구로 자유로운 야생을 경험하세요. 
+                    TPA, 시체 등 편의성 도구를 제공합니다.
+                </p>
             </div>
             
-            <div>
-                <a href="{{ player.skinurl }}"><img src = "{{ player.img.url }}"></a>
+            <div class="card-component p-6 md:p-8 text-center group">
+                <div class="w-16 h-20 md:w-20 md:h-20 bg-gradient-to-br from-mc-blue to-blue-600 rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <span class="text-2xl md:text-3xl">⚡</span>
+                </div>
+                <h3 class="font-pixel text-lg md:text-xl text-mc-blue mb-3 md:mb-4">레드스톤 연구</h3>
+                <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                    복잡한 회로와 자동화 시스템을 구축해보세요. 
+                    레드스톤 마스터가 될 수 있는 환경을 제공합니다.
+                </p>
             </div>
-        </li>
-        {% endfor %}
-    </ol>
+            
+            <div class="card-component p-6 md:p-8 text-center group">
+                <div class="w-16 h-20 md:w-20 md:h-20 bg-gradient-to-br from-mc-blue to-blue-600 rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <span class="text-2xl md:text-3xl">🏆</span>
+                </div>
+                <h3 class="font-pixel text-lg md:text-xl text-mc-blue mb-3 md:mb-4">랭킹 시스템</h3>
+                <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                    건축, 레드스톤, 명령어 등 다양한 분야에서 
+                    실력을 겨루고 랭킹을 올려보세요.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
-</div>
+<!-- Stats Section Component -->
+<section class="py-12 md:py-16 bg-mc-gray">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-pixel text-2xl md:text-3xl text-center text-mc-blue mb-12 md:mb-16 tracking-wide">서버 통계</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            <div class="stats-card text-center group">
+                <div class="text-2xl md:text-4xl font-pixel text-mc-blue mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">18</div>
+                <div class="text-gray-600 font-medium text-sm md:text-base">등록된 플레이어</div>
+            </div>
+            <div class="stats-card text-center group">
+                <div class="text-2xl md:text-4xl font-pixel text-mc-blue mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">8</div>
+                <div class="text-gray-600 font-medium text-sm md:text-base">건축 작품</div>
+            </div>
+            <div class="stats-card text-center group">
+                <div class="text-2xl md:text-4xl font-pixel text-mc-blue mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">2</div>
+                <div class="text-gray-600 font-medium text-sm md:text-base">레드스톤 프로젝트</div>
+            </div>
+            <div class="stats-card text-center group">
+                <div class="text-2xl md:text-4xl font-pixel text-mc-blue mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">24/7</div>
+                <div class="text-gray-600 font-medium text-sm md:text-base">서버 운영</div>
+            </div>
+        </div>
+    </div>
+</section>
 
-{% endblock %}
+<!-- CTA Section Component -->
+<section class="section-header">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <h2 class="font-pixel text-2xl md:text-3xl mb-6 md:mb-8 tracking-wide">지금 바로 참여하세요!</h2>
+        <p class="text-lg md:text-xl mb-8 md:mb-12 opacity-90">
+            서버 주소: <span class="font-mono font-bold text-mc-accent bg-white/20 px-3 md:px-4 py-1 md:py-2 rounded-xl text-sm md:text-base">host.wltp.world:1105</span>
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
+            <a href="/how_to_join" class="btn-primary text-base md:text-lg">
+                🎮 참여 방법 보기
+            </a>
+            <a href="/rule" class="btn-secondary text-base md:text-lg">
+                📋 서버 규칙
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %} 
