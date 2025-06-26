@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}임페리움 - 마인크래프트 서버{% endblock %}</title>
+    <title>{% block title %}IMPERIUM SERVER - 마인크래프트 서버{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,8 +34,10 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="apple-touch-icon" href="{% static 'asset/img/logo/icon.png'%}"/>
+    <link rel="icon" href="{% static 'asset/img/logo/icon.png'%}"/>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="{% static 'main/index.css' %}">
     {% block extra_css %}{% endblock %}
 </head>
 <body class="bg-mc-light font-sans antialiased">
@@ -42,8 +45,8 @@
     <header class="sticky top-0 z-50 flex justify-center py-4 md:py-6 px-4">
         <nav class="bg-white rounded-2xl md:rounded-3xl shadow-toss-lg border border-gray-200 px-4 py-3 md:px-8 md:py-4 w-full max-w-4xl">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
-                <a href="/" class="font-pixel text-mc-blue text-lg md:text-xl tracking-wider hover:text-blue-600 transition-all duration-200">
-                    WLTP WORLD
+                <a href="{% url 'main' %}" class="font-pixel text-mc-blue text-lg md:text-xl tracking-wider hover:text-blue-600 transition-all duration-200">
+                    IMPERIUM SERVER
                 </a>
                 <ul class="flex flex-wrap justify-center md:justify-end items-center space-x-2 md:space-x-3">
                     <li><a href="{% url 'main' %}" class="nav-link-component">홈</a></li>
@@ -54,7 +57,7 @@
                     <li class="hidden md:block text-gray-300">|</li>
                     <li><a href="{% url 'how_to_join' %}" class="nav-link-component">참여 방법</a></li>
                     <li class="hidden md:block text-gray-300">|</li>
-                    <li><a href="/ranking" class="nav-link-component">랭킹</a></li>
+                    <li><a href="{% url 'ranking:ranking' %}" class="nav-link-component">랭킹</a></li>
                     <li class="hidden md:block text-gray-300">|</li>
                     <li><a href="{% url 'notice:list' %}" class="nav-link-component">공지사항</a></li>
                 </ul>

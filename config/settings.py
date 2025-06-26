@@ -38,7 +38,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -46,10 +46,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'main',
-    'build_ranking',
-    'building_ranking',
-    'redstone_ranking',
-    'command_ranking',
+    'ranking',
     'gallery',
     'account',
     'how_to_join',

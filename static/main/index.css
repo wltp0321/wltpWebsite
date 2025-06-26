@@ -1,263 +1,257 @@
-@font-face {
-    font-family: 'HakgyoansimAllimjangTTF-B';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimAllimjangTTF-B.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+/* 마인크래프트 공식 서버 느낌의 심플&모던 스타일 */
+
+:root {
+    --mc-green: #5e7c16;
+    --mc-brown: #7c5e3c;
+    --mc-light: #f3f3f3;
+    --mc-dark: #222;
+    --mc-accent: #b6e53e;
+    --mc-border: #cfcfcf;
 }
 
-@keyframes bounceScale {
-    0%, 100% {
-        transform: scale(1) translateY(0);
-    }
-    50% {
-        transform: scale(1.05) translateY(0px); /* 살짝 커지고 위로 튐 */
-    }
-}
-
-
-* {
-    font-size: 24px;
-    font-family: 'HakgyoansimAllimjangTTF-B';
+html, body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Malgun Gothic', 'Arial', sans-serif;
+    background: var(--mc-light);
+    color: var(--mc-dark);
+    min-height: 100vh;
 }
 
-div {           
-    margin-bottom: 5px;
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-img {
-    width: 15vw;
-    height: auto;
-    object-fit: cover;
+/* 네비게이션 */
+.navbar {
+    background: linear-gradient(90deg, var(--mc-green) 60%, var(--mc-brown) 100%);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 0.5rem 0;
 }
-
-.content3 {
-    border-radius: 10px;
+.nav-flex {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: rgb(128, 161, 250);
-    text-align: center;
+    justify-content: space-between;
 }
-
-
-.content2 {
-    border-radius: 10px;
+.logo {
+    font-family: 'Segoe UI', 'Arial Black', 'Arial', sans-serif;
+    font-size: 1.6rem;
+    color: #fff;
+    text-shadow: 1px 2px 0 #333, 0 0 8px #b6e53e44;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.nav-menu {
+    list-style: none;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(216, 216, 216);
-    text-align: center;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+.nav-link {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+.nav-link:hover, .nav-link.active {
+    background: var(--mc-accent);
+    color: var(--mc-dark);
 }
 
-.player {
-    float: left;
+/* 페이지 헤더 */
+.page-header {
+    background: linear-gradient(90deg, var(--mc-green) 60%, var(--mc-brown) 100%);
+    color: #fff;
+    padding: 2.5rem 0 1.5rem 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    margin-bottom: 2rem;
 }
-/*a*/
-
-a {
-    text-decoration-line: none;
-    display: block;
+.page-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 1px 2px 0 #333, 0 0 8px #b6e53e44;
 }
-
-a:link {
-    color : black;
-}
-
-a:visited {
-    color : black;
-}
-
-a:hover {
-    color : black;
-}
-
-a:active {
-    color : black;
+.page-header p {
+    font-size: 1.1rem;
+    opacity: 0.95;
 }
 
-li {
-    min-width: 100px; /* 최소 크기 설정 */
+/* 메인 컨텐츠 */
+.content-section {
+    margin-bottom: 2.5rem;
 }
 
-.taskbar-ol {
+/* 서버 특징/정보 리스트 */
+.feature-list, .info-list {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(94,124,22,0.07);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1.5px solid var(--mc-border);
+    font-size: 1.05rem;
+}
+.feature-list li, .info-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+.feature-list li:last-child, .info-list li:last-child { margin-bottom: 0; }
+
+/* 규칙 */
+.rule-list {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(124,94,60,0.07);
+    padding: 1.2rem 1.5rem;
+    border: 1.5px solid var(--mc-border);
+    font-size: 1.05rem;
+}
+.rule-list li {
+    margin-bottom: 0.7rem;
+    padding-left: 0.5rem;
+}
+.rule-list li:last-child { margin-bottom: 0; }
+
+/* 참여 방법 */
+.join-steps {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(94,124,22,0.07);
+    padding: 1.2rem 1.5rem;
+    border: 1.5px solid var(--mc-border);
+    font-size: 1.05rem;
+}
+.join-steps li {
+    margin-bottom: 0.7rem;
+    line-height: 1.7;
+}
+.join-steps li:last-child { margin-bottom: 0; }
+.help-box {
+    margin-top: 1.2rem;
+    background: var(--mc-accent);
+    color: #222;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(182,229,62,0.08);
+}
+
+/* 랭킹 탭 */
+.ranking-tabs {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 0;
-    list-style-position: inside;
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
 }
-
-/*hidden*/
-
-.hidden {
-    text-align: center;
-    background-color: rgba(185, 185, 185, 0.5);
-    height: auto;
-    flex-direction: column;
-    display: none;
-    margin: 0;
-    padding: 0;
+.tab-btn {
+    background: #fff;
+    color: var(--mc-green);
+    border: 2px solid var(--mc-green);
+    border-radius: 8px 8px 0 0;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 6px rgba(94,124,22,0.06);
 }
-
-.hidden:hover {
-    animation: bounceScale 0.5s ease-in-out;
+.tab-btn.active, .tab-btn:hover {
+    background: var(--mc-green);
+    color: #fff;
 }
-
-
-.last_hidden {
-    text-align: center;
-    background-color: rgba(185, 185, 185, 0.5);
-    height: auto;
-    flex-direction: column;
-    display: none;
-    margin: 0;
-    padding: 0;
-    border-radius: 0px 0px 10px 10px;
+.ranking-table-wrap {
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 2px 8px rgba(94,124,22,0.07);
+    border: 1.5px solid var(--mc-border);
+    border-top: none;
+    overflow-x: auto;
 }
-
-.last_hidden:hover {
-    animation: bounceScale 0.5s ease-in-out;
-}
-
-
-/*menus*/
-
-.title_menu {
-    border-radius: 10px;
-    background-color: rgba(185, 185, 185, 0.5);
-    height: 40px;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-
-.title_menu_asdf:hover {
-    border-radius: 10px;
-}
-
-.title_menu_asdf {
-    border-radius: 10px;
-    background-color: rgba(185, 185, 185, 0.5);
-    height: 40px;
-    text-align: center; 
-    margin: 0;
-    padding: 0;
-}
-
-.title_menu:hover {
-    border-radius: 10px 10px 0px 0px;
-    animation: bounceScale 0.5s ease-in-out;
-}
-
-.menu:hover {
-    animation: bounceScale 0.5s ease-in-out;
-}
-
-.menu {
-    border-radius: 10px;
-    background-color: rgba(185, 185, 185, 0.5);
-    height: 40px;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.title_menu h2 a,.menu h2 a {    
-    line-height: 48px;
-}
-
-/*containers*/
-.taskbar-bg {
-    display: flex;
-    background-color: rgba(185, 185, 185, 0.5);
-    border-radius: 0px 0px 20px 20px;
-    position: absolute;
+.ranking-table {
     width: 100%;
-    height: 120px;
-    z-index: -10;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+.ranking-table th, .ranking-table td {
+    padding: 0.7rem 0.5rem;
+    border-bottom: 1px solid #eaeaea;
+    text-align: center;
+}
+.ranking-table th {
+    background: var(--mc-accent);
+    color: var(--mc-dark);
+    font-weight: 700;
+}
+.ranking-table tr:last-child td {
+    border-bottom: none;
+}
+.ranking-table tr:hover {
+    background: #f7ffe0;
 }
 
-.taskbar-container {
-    justify-content: center;
+/* 공지사항 */
+.notice-list {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.notice-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(124,94,60,0.07);
+    border: 1.5px solid var(--mc-border);
+    padding: 1.1rem 1.3rem;
+    transition: box-shadow 0.2s;
+}
+.notice-item:hover {
+    box-shadow: 0 4px 16px rgba(124,94,60,0.13);
+}
+.notice-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--mc-brown);
+    margin-bottom: 0.3rem;
+}
+.notice-meta {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+.notice-content {
+    font-size: 1rem;
+    color: #333;
 }
 
-.visible {
-    width: 150px;
-    margin: 40px;
+/* 푸터 */
+footer {
+    background: var(--mc-green);
+    color: #fff;
+    text-align: center;
+    padding: 1.2rem 0 1rem 0;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    margin-top: 2.5rem;
+    font-size: 1rem;
+    box-shadow: 0 -2px 8px rgba(94,124,22,0.08);
 }
 
-.hamburger {
-    display: none;
-    position: fixed;
-}
-
-
-@media screen and (max-width: 768px) {
-    /* .taskbar-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        overflow : scroll;
-        width: 100%;
-        background-color: rgba(185, 185, 185, 0.9);
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        transition: all 0.3s ease-in-out;
-    } */
-
-    * {
-        font-size: 14px;
-    }
-
-    .visible {
-        width: 80px;
-        margin: 20px;
-        
-    }
-
-    .title_menu {
-        padding: 3px;
-        
-    }
-
-
-    /* .taskbar-container.active {
-        display: flex;
-        position: fixed;
-        opacity: 1;
-        transform: translateY(0);
-    } */
-
-    /* .hamburger {
-        display: block;
-        position: sticky;
-        top: 20px;
-        left: 20px;
-        font-size: 28px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 1000;
-    } */
-
-    .hidden {
-        padding: 3px;
-        display: flex;
-        text-align: center;
-    }
-
-    .last_hidden {
-        padding: 3px;
-        text-align: center;
-        display: flex;
-    }
-}
-
-
+/* 반응형 */
+@media (max-width: 700px) {
+    .container { padding: 0 0.5rem; }
+    .nav-menu { gap: 0.7rem; }
+    .page-header { padding: 1.5rem 0 1rem 0; }
+    .page-header h1 { font-size: 1.3rem; }
+    .ranking-tabs { flex-direction: column; gap: 0.3rem; }
+    .tab-btn { width: 100%; }
+    .ranking-table th, .ranking-table td { padding: 0.4rem 0.2rem; font-size: 0.95rem; }
+    .feature-list, .info-list, .rule-list, .join-steps { padding: 0.7rem 0.7rem; font-size: 0.97rem; }
+    .notice-item { padding: 0.7rem 0.7rem; }
+} 
