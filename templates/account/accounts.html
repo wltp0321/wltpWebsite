@@ -1,20 +1,44 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
+{% block title %}{{ user.username }} - 회원 정보 | IMPERIUM SERVER{% endblock %}
 
 {% block content %}
-<div class="content2">
-    <h1>{{ user.username }}</h1>
-{% if request.user == user %}
-    <form action="{% url 'account:edit' %}" method="POST">
-        {% csrf_token %}
-        <button class="btn btn-secondary">회원 수정</button>
-    </form>
+<section class="section-header py-12 bg-gray-50 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+        <h1 class="font-pixel text-4xl md:text-5xl mb-4 text-mc-blue text-shadow-pixel">
+            {{ user.username }} 님의 정보
+        </h1>
+    </div>
+</section>
 
-    <form action="{% url 'account:delete_account' %}" method="POST">
-        {% csrf_token %}
-        <button class="btn btn-secondary">회원 탈퇴</button>
-    </form>
-    <a href="{% url 'account:logout' %}">(로그아웃)</a>
-    {% endif %}
-</div>
+<section class="content-section py-10 bg-white">
+    <div class="max-w-md mx-auto px-6 md:px-8 space-y-6">
+        {% if request.user == user %}
+        <form action="{% url 'account:edit' %}" method="POST" class="flex justify-center space-x-4">
+            {% csrf_token %}
+            <button type="submit" 
+                    class="btn btn-secondary bg-mc-blue text-white font-pixel py-2 px-6 rounded-md hover:bg-blue-700 transition">
+                회원 수정
+            </button>
+        </form>
+
+        <form action="{% url 'account:delete_account' %}" method="POST" class="flex justify-center space-x-4">
+            {% csrf_token %}
+            <button type="submit" 
+                    class="btn btn-secondary bg-red-600 text-white font-pixel py-2 px-6 rounded-md hover:bg-red-700 transition">
+                회원 탈퇴
+            </button>
+        </form>
+
+        <div class="text-center mt-4">
+            <a href="{% url 'account:logout' %}" 
+               class="text-mc-blue font-pixel hover:text-blue-600 transition">
+               (로그아웃)
+            </a>
+        </div>
+        {% else %}
+        <p class="text-center text-gray-600 font-pixel">이 페이지는 본인만 수정할 수 있습니다.</p>
+        {% endif %}
+    </div>
+</section>
 {% endblock %}

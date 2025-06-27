@@ -1,4 +1,4 @@
-#!/home/odroid/python_projects/venv/bin/python
+#!/home/odroid/wltp_website/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -49,8 +49,6 @@
                     IMPERIUM SERVER
                 </a>
                 <ul class="flex flex-wrap justify-center md:justify-end items-center space-x-2 md:space-x-3">
-                    <li><a href="{% url 'main' %}" class="nav-link-component">홈</a></li>
-                    <li class="hidden md:block text-gray-300">|</li>
                     <li><a href="{% url 'descriptions' %}" class="nav-link-component">서버 소개</a></li>
                     <li class="hidden md:block text-gray-300">|</li>
                     <li><a href="{% url 'rule' %}" class="nav-link-component">규칙</a></li>
@@ -60,6 +58,12 @@
                     <li><a href="{% url 'ranking:ranking' %}" class="nav-link-component">랭킹</a></li>
                     <li class="hidden md:block text-gray-300">|</li>
                     <li><a href="{% url 'notice:list' %}" class="nav-link-component">공지사항</a></li>
+                    <li class="hidden md:block text-gray-300">|</li>
+                    {% if not user.is_authenticated %}
+                    <li><a href="{% url 'account:login' %}" class="nav-link-component">로그인</a></li>
+                    {% else %}
+                    <li><a href="{% url 'account:detail' %}" class="nav-link-component">내 계정</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

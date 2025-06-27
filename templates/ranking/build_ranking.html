@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}건축 랭킹 - WLTP World{% endblock %}
+{% block content %}
+<!-- Hero Section Component -->
+<section class="section-header">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h1 class="font-pixel text-4xl md:text-5xl mb-6 tracking-wider text-shadow-pixel">
+            건축 랭킹
+        </h1>
+        <p class="text-xl md:text-2xl opacity-90 leading-relaxed max-w-3xl mx-auto">
+            여러 플레이어 분들 께서 만들어주신<br class="hidden md:block">
+            창의적인 건축 작품들 입니다.
+        </p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="{% url 'ranking:hard_worked_ranking' %}" class="btn-secondary text-lg">
+            ⛏️ 노가다 랭킹
+        </a>
+        <a href="{% url 'ranking:ranking' %}" class="btn-secondary text-lg">
+            🏆 랭킹
+        </a>
+        <a href="{% url 'ranking:redstone_ranking' %}" class="btn-primary text-lg">
+            ⚡ 레드스톤 랭킹
+        </a>
+    </div>
+</section>
+
+<!-- Content Section Component -->
+<section class="content-section">
+    <div class="max-w-4xl mx-auto px-4">
+        <!-- Rules Card Component -->
+        <div class="card-component p-8 mb-12">
+            <h2 class="font-pixel text-2xl text-mc-blue mb-8 tracking-wide">건축 랭킹</h2>
+            <div class="space-y-6">
+
+                {% for BuildPlayer in BuildPlayers %}
+                    <div class="rule-card group hover:shadow-toss-xl transition-all duration-200">
+                        <div class="flex items-center space-x-4">
+                            <div class="
+                                flex-shrink-0 w-12 h-12
+                                {% if forloop.counter == 1 %}
+                                    bg-gradient-to-br from-mc-gold to-yellow-500
+                                {% elif forloop.counter == 2 %}
+                                    bg-gradient-to-br from-gray-400 to-gray-500
+                                {% elif forloop.counter == 3 %}
+                                    bg-gradient-to-br from-amber-600 to-orange-500
+                                {% else %}
+                                    bg-gradient-to-br from-mc-blue to-blue-600
+                                {% endif %}
+                                text-white rounded-3xl flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform
+                            ">
+                                {{ forloop.counter }}
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="font-semibold text-mc-blue text-lg group-hover:text-blue-600 transition-colors">{{ BuildPlayer.player }}</h3>
+                                        <p class="text-gray-600 text-sm">{{ BuildPlayer.things }}</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-pixel text-xl text-mc-blue">{{ BuildPlayer.point }}점</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

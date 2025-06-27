@@ -1,2 +1,38 @@
-{{user.username}}님, 아래 링크를 클릭하여 계정을 활성화하세요:
-http://{{domain}}{% url 'account:activate' uid token %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>계정 활성화 안내</title>
+  </head>
+  <body style="margin:0; padding:0; font-family:'Noto Sans KR', sans-serif; background-color:#f9fafb; color:#1e3a8a;">
+    <div style="max-width:600px; margin:30px auto; background:#e0e7ff; border-radius:12px; padding:30px 40px; box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+      
+      <h1 style="font-size:22px; margin-bottom:16px; color:#1e40af; font-family:'Arial', sans-serif;">
+        IMPERIUM SERVER 계정 활성화
+      </h1>
+      
+      <p style="font-size:16px; line-height:1.6; margin-bottom:30px;">
+        {{ user.username }}님, 아래 버튼을 클릭하여 계정을 활성화해 주세요.
+      </p>
+
+      <p style="text-align:center; margin-bottom:30px;">
+        <a href="{{ activation_link }}"
+           style="display:inline-block; background-color:#2563eb; color:white; font-weight:700; text-decoration:none; padding:14px 24px; border-radius:8px; font-family:'Arial', sans-serif; font-size:13px; letter-spacing:1.2px;">
+          계정 활성화하기
+        </a>
+      </p>
+
+      <p style="font-size:14px; line-height:1.6; margin-bottom:30px;">
+        위 버튼이 작동하지 않는 경우, 아래 링크를 복사하여 브라우저에 붙여넣어 주세요:
+      </p>
+
+      <p style="word-break:break-all; font-size:13px; color:#1e3a8a;">
+        {{ activation_link }}
+      </p>
+
+      <div style="margin-top:40px; font-size:12px; color:#64748b; text-align:center;">
+        IMPERIUM SERVER | 마인크래프트 서버
+      </div>
+    </div>
+  </body>
+</html>

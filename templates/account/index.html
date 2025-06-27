@@ -1,27 +1,47 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block style %}
-{% endblock %}
+{% block title %}로그인 - IMPERIUM SERVER{% endblock %}
 
 {% block content %}
-<div class="content2">
-  
-  <h1>로그인</h1>
-  <form method="post" action="{% url 'account:login' %}">
-    {% csrf_token %}
-    {% include 'account/form_errors.html' %}
-    <div>
-      <label>사용자 ID</label>
-      <input type="text" name="username" id="username">
+<section class="section-header py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h1 class="font-pixel text-3xl md:text-4xl lg:text-5xl mb-6 tracking-wider text-shadow-pixel text-mc-blue">
+            로그인
+        </h1>
+        <p class="text-lg md:text-xl lg:text-2xl opacity-90 leading-relaxed max-w-xl mx-auto px-4">
+            IMPERIUM SERVER에 오신 것을 환영합니다! <br class="hidden md:block">
+            계정으로 접속해 다양한 서버 경험을 즐겨보세요.
+        </p>
     </div>
-    <div>
-      <label>비밀번호</label>
-      <input type="password" name="password" id="password">
+</section>
+
+<section class="content-section py-10 bg-white">
+    <div class="max-w-md mx-auto px-6 md:px-8">
+        <form method="post" action="{% url 'account:login' %}" class="space-y-6 bg-mc-gray p-8 rounded-2xl shadow-lg border border-gray-200">
+            {% csrf_token %}
+            {% include 'account/form_errors.html' %}
+            
+            <div>
+                <label for="username" class="block mb-2 font-semibold text-mc-blue">사용자 ID</label>
+                <input type="text" name="username" id="username" required
+                       class="w-full rounded-md border border-gray-300 p-3 text-base focus:outline-none focus:ring-2 focus:ring-mc-blue transition" />
+            </div>
+            
+            <div>
+                <label for="password" class="block mb-2 font-semibold text-mc-blue">비밀번호</label>
+                <input type="password" name="password" id="password" required
+                       class="w-full rounded-md border border-gray-300 p-3 text-base focus:outline-none focus:ring-2 focus:ring-mc-blue transition" />
+            </div>
+            
+            <button type="submit" 
+                    class="w-full bg-mc-blue text-white font-pixel font-semibold py-3 rounded-md hover:bg-blue-700 transition">
+                로그인
+            </button>
+        </form>
+        <div class="text-center mt-6 text-sm text-gray-600">
+            계정이 없으신가요? 
+            <a href="{% url 'account:signup' %}" class="text-mc-blue hover:text-blue-600 font-semibold">회원가입</a>
+        </div>
     </div>
-    <button type="submit">로그인</button>
-  </form>
-  <a href="{% url 'account:signup' %}">회원가입</a>
-</div>
-
-
+</section>
 {% endblock %}

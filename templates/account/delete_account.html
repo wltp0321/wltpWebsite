@@ -1,27 +1,42 @@
 {% extends "base.html" %}
 
-{% block style %}
-{% endblock %}
+{% block title %}회원 탈퇴 - IMPERIUM SERVER{% endblock %}
 
 {% block content %}
-<div class="content2">
-    <h2>회원 탈퇴</h2>
-    <p>비밀번호를 입력하여 탈퇴를 완료하세요.</p>
+<section class="section-header py-16 bg-gray-50 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+        <h2 class="font-pixel text-4xl mb-4 text-mc-blue text-shadow-pixel">
+            회원 탈퇴
+        </h2>
+        <p class="text-lg md:text-xl opacity-90 leading-relaxed max-w-lg mx-auto px-4 mb-8">
+            비밀번호를 입력하여 탈퇴를 완료하세요.
+        </p>
+    </div>
+</section>
 
-    <form method="post">
-        {% csrf_token %}
-        <label for="password">비밀번호:</label>
-        <input type="password" name="password" id="password" required>
-        <br><br>
-        <button type="submit">탈퇴하기</button>
-    </form>
+<section class="content-section py-10 bg-white">
+    <div class="max-w-md mx-auto px-6 md:px-8">
+        <form method="post" class="space-y-6 bg-mc-gray p-8 rounded-2xl shadow-lg border border-gray-200">
+            {% csrf_token %}
+            <div>
+                <label for="password" class="block mb-2 font-semibold text-mc-blue">비밀번호</label>
+                <input type="password" name="password" id="password" required
+                       class="w-full rounded-md border border-gray-300 p-3 text-base focus:outline-none focus:ring-2 focus:ring-mc-blue transition" />
+            </div>
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-</div>
+            <button type="submit"
+                    class="w-full bg-red-600 text-white font-pixel font-semibold py-3 rounded-md hover:bg-red-700 transition">
+                탈퇴하기
+            </button>
+        </form>
+
+        {% if messages %}
+            <ul class="mt-6 max-w-md mx-auto px-4 text-center space-y-2 text-red-600 font-pixel font-semibold">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</section>
 {% endblock %}

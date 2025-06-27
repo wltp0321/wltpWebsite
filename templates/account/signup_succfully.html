@@ -1,17 +1,17 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block style %}
-{% endblock %}
-
+{% block title %}회원가입 완료 - IMPERIUM SERVER{% endblock %}
 
 {% block content %}
-<div class="content2">
-    <h1>회원가입이 완료 되었습니다.
-        <br>
-        이메일을 확인해 주세요.
-    </h1>
-
-</div>
-
-
+<section class="section-header py-20 bg-gray-50 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+        <h1 class="font-pixel text-4xl md:text-5xl mb-6 text-mc-blue text-shadow-pixel">
+            회원가입이 완료되었습니다.
+        </h1>
+        <p class="text-lg md:text-xl opacity-90 leading-relaxed max-w-xl mx-auto px-4">
+            이메일을 확인해 주세요.<br>
+            인증 후 IMPERIUM SERVER 서버를 자유롭게 이용하실 수 있습니다.
+        </p>
+    </div>
+</section>
 {% endblock %}

@@ -47,7 +47,6 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'main',
     'ranking',
-    'gallery',
     'account',
     'how_to_join',
     'description',
@@ -60,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sslserver',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +135,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+SITE_URL = 'https://www.wltp.world'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/

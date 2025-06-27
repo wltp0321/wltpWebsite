@@ -1,12 +1,48 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block content %}
-<div class="content2">
-    <h2>회원 정보 수정</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">수정하기</button>
+<section class="section-header">
+  <div class="max-w-2xl mx-auto px-4 text-center">
+    <h1 class="font-pixel text-3xl md:text-4xl lg:text-5xl mb-6 tracking-wider text-shadow-pixel">
+      회원 정보 수정
+    </h1>
+    <p class="text-lg text-gray-600">정보를 수정하고 저장해주세요.</p>
+  </div>
+</section>
+
+<section class="content-section mt-8">
+  <div class="max-w-2xl mx-auto bg-white p-6 md:p-10 border border-gray-200 shadow rounded-2xl">
+    <form method="post" class="space-y-6">
+      {% csrf_token %}
+      {% for field in form %}
+        <div>
+          <label for="{{ field.id_for_label }}" class="block mb-1 text-sm font-semibold text-gray-800">
+            {{ field.label }}
+          </label>
+          {{ field|add_class:"w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" }}
+
+          {% if field.help_text %}
+            <p class="text-xs text-gray-500 mt-1">{{ field.help_text|safe }}</p>
+          {% endif %} 
+          {% if field.errors %}
+            <p class="text-sm text-red-500 mt-1">{{ field.errors.0 }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <div class="text-center pt-4">
+        <button type="submit"
+                class="bg-blue-600 hover:bg-blue-700 text-white font-pixel px-6 py-2 rounded-xl shadow transition duration-200">
+          수정하기
+        </button>
+      </div>
     </form>
+  </div>
+  <div class="text-center mt-8">
+  <a href="{% url 'account:password_change' %}" class="text-blue-600 hover:underline font-semibold text-sm">
+    🔐 비밀번호 변경하기
+  </a>
 </div>
+</section>
 {% endblock %}
