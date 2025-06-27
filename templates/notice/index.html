@@ -25,25 +25,21 @@
                 </div>
                 <h2 class="font-pixel text-2xl text-mc-red">중요 공지</h2>
             </div>
-            {% for notice in notices %}
-                {% if notice.notice_type == 0 %}    
-                    <div class="notice-card group hover:shadow-toss-xl transition-all duration-200 border-l-4 border-mc-red">
-                        <div class="flex items-start justify-between mb-4">
-                            <h3 class="font-semibold text-mc-blue text-xl group-hover:text-blue-600 transition-colors">{{ notice.title }}</h3>
-                            <span class="text-sm text-gray-500">{{ notice.created_at }}</span>
-                        </div>
-                        
-                        <pre class="text-gray-600 leading-relaxed mb-4 font-semibold font-sans whitespace-pre-wrap break-words" style="text-align: center;">{{ notice.content0 }}</pre>
-
-                        <div class="bg-mc-gray rounded-2xl p-4 border border-gray-200">
-                            <pre class="text-sm text-gray-700 font-semibold font-sans whitespace-pre-wrap break-words">{{ notice.content1 }}</p>
-                        </div>
+            {% for ImportantNotice in ImportantNotices %}
+                <div class="notice-card group hover:shadow-toss-xl transition-all duration-200 border-l-4 border-mc-red">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="font-semibold text-mc-blue text-xl group-hover:text-blue-600 transition-colors">{{ ImportantNotice.title }}</h3>
+                        <span class="text-sm text-gray-500">{{ ImportantNotice.created_at }}</span>
                     </div>
-                {% elif notice.notice_type == 1 %}
-                {% elif notice.notice_type == 2 %}
-                {% else %}
-                    <p>공지사항이 없습니다.</p>
-                {% endif %}
+                    
+                    <pre class="text-gray-600 leading-relaxed mb-4 font-semibold font-sans whitespace-pre-wrap break-words" style="text-align: center;">{{ ImportantNotice.content0 }}</pre>
+
+                    <div class="bg-mc-gray rounded-2xl p-4 border border-gray-200">
+                        <pre class="text-sm text-gray-700 font-semibold font-sans whitespace-pre-wrap break-words">{{ ImportantNotice.content1 }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>공지사항이 없습니다.</p>
             {% endfor %}
 
             
@@ -53,44 +49,36 @@
         <div class="card-component p-8 mb-12">
             <h2 class="font-pixel text-2xl text-mc-blue mb-8 tracking-wide">일반 공지</h2>
             <div class="space-y-6">
-                {% for notice in notices %}
-                    {% if notice.notice_type == 1 %}
-                        <div class="notice-card group hover:shadow-toss-xl transition-all duration-200">
-                            <div class="flex items-start justify-between mb-4">
-                                <h3 class="font-semibold text-mc-blue text-lg group-hover:text-blue-600 transition-colors">{{ notice.title }}</h3>
-                                <span class="text-sm text-gray-500">{{ notice.created_at }}</span>
-                            </div>
-
-                            <pre class="text-gray-600 leading-relaxed mb-4 font-sans whitespace-pre-wrap break-words">{{ notice.content0 }}</pre>
-                            <pre class="text-gray-600 leading-relaxed mb-4 font-sans whitespace-pre-wrap break-words">{{ notice.content1 }}</pre>
+                {% for NormalNotice in NormalNotices %}
+                    <div class="notice-card group hover:shadow-toss-xl transition-all duration-200">
+                        <div class="flex items-start justify-between mb-4">
+                            <h3 class="font-semibold text-mc-blue text-lg group-hover:text-blue-600 transition-colors">{{ NormalNotice.title }}</h3>
+                            <span class="text-sm text-gray-500">{{ NormalNotice.created_at }}</span>
                         </div>
-                    {% elif notice.notice_type == 0 %}
-                    {% elif notice.notice_type == 2 %}
-                    {% else %}
-                        <p>공지사항이 없습니다.</p>
-                    {% endif %}
+
+                        <pre class="text-gray-600 leading-relaxed mb-4 font-sans whitespace-pre-wrap break-words">{{ NormalNotice.content0 }}</pre>
+                        <pre class="text-gray-600 leading-relaxed mb-4 font-sans whitespace-pre-wrap break-words">{{ NormalNotice.content1 }}</pre>
+                    </div>
+                {% empty %}
+                    <p>공지사항이 없습니다.</p>
                 {% endfor %}
         
         <!-- Archive Component -->
         <div class="card-component p-8">
             <h2 class="font-pixel text-2xl text-mc-blue mb-8 tracking-wide">공지사항 아카이브</h2>
             <div class="grid md:grid-cols-2 gap-4">
-                {% for notice in notices %}
-                    {% if notice.notice_type == 2 %}
-                        <div class="stats-card p-4 group hover:shadow-toss-lg transition-all duration-200 cursor-pointer">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="font-semibold text-mc-blue text-sm group-hover:text-blue-600 transition-colors">{{ notice.title }}</h3>
-                                    <p class="text-gray-500 text-xs">{{ notice.created_at }}</p>
-                                </div>
-                                <span class="text-gray-400">📄</span>
+                {% for ArchivedNotice in ArchivedNotices %}
+                    <div class="stats-card p-4 group hover:shadow-toss-lg transition-all duration-200 cursor-pointer">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="font-semibold text-mc-blue text-sm group-hover:text-blue-600 transition-colors">{{ ArchivedNotice.title }}</h3>
+                                <p class="text-gray-500 text-xs">{{ ArchivedNotice.created_at }}</p>
                             </div>
+                            <span class="text-gray-400">📄</span>
                         </div>
-                    {% elif notice.notice_type == 1 %}
-                    {% elif notice.notice_type == 0 %}
-                    {% else %}
-                        <p>공지사항이 없습니다.</p>
-                    {% endif %}
+                    </div>
+                {% empty %}
+                    <p>공지사항이 없습니다.</p>
                 {% endfor %}
                 
             </div>

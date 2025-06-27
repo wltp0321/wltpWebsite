@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from .models import Notice
+from .models import *
 
 def notice_list(request):
-    notices = Notice.objects.all()
-    return render(request, 'notice/index.html', {'notices': notices})
+    ImportantNotices = ImportantNotice.objects.all()
+    NormalNotices = NormalNotice.objects.all()
+    ArchivedNotices = ArchivedNotice.objects.all()
+    return render(request, 'notice/index.html', {'ImportantNotices': ImportantNotices, 'NormalNotices': NormalNotices, 'ArchivedNotices': ArchivedNotices})

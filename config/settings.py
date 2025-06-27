@@ -42,6 +42,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.wltp.world',
+    'https://wltp.world',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
