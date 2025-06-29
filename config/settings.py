@@ -49,6 +49,17 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Application definition
 
+
+# 세션 만료 시간 (초 단위) — 예: 60분
+SESSION_COOKIE_AGE = 3600  # 60분 = 3600초
+
+# 브라우저를 닫으면 세션 만료 (선택)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# 사용자가 요청할 때마다 세션 시간 초기화 여부
+SESSION_SAVE_EVERY_REQUEST = False
+
+
 INSTALLED_APPS = [
     'main',
     'ranking',
@@ -64,6 +75,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sslserver',
+    'widget_tweaks',
     'mathfilters',
 ]
 
