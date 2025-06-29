@@ -51,7 +51,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 # 세션 만료 시간 (초 단위) — 예: 60분
-SESSION_COOKIE_AGE = 900 # 60분 = 3600초
+SESSION_COOKIE_AGE = 3600 # 60분 = 3600초
 
 # 브라우저를 닫으면 세션 만료 (선택)
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
