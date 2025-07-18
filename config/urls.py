@@ -46,6 +46,7 @@ urlpatterns = [
     path('how_to_join/', server_how_to_join, name='how_to_join'),
     path('ranking/', include("ranking.urls")),
     path('notices/', include('notice.urls')),
+    path('api/', include('api.urls')),
     path('account/', include("account.urls")),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),

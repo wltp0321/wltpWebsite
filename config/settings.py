@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'main',
     'ranking',
     'account',
+    'api',
     'how_to_join',
     'description',
     'notice',
