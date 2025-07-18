@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.sites.models import Site
 
 class ImportantNotice(models.Model):
     title = models.CharField("title", max_length=200, null=True, blank=True)

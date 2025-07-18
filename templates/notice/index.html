@@ -62,25 +62,27 @@
                 {% empty %}
                     <p>공지사항이 없습니다.</p>
                 {% endfor %}
-        
+            </div>
+        </div>
         <!-- Archive Component -->
         <div class="card-component p-8">
             <h2 class="font-pixel text-2xl text-mc-blue mb-8 tracking-wide">공지사항 아카이브</h2>
             <div class="grid md:grid-cols-2 gap-4">
                 {% for ArchivedNotice in ArchivedNotices %}
-                    <div class="stats-card p-4 group hover:shadow-toss-lg transition-all duration-200 cursor-pointer">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <h3 class="font-semibold text-mc-blue text-sm group-hover:text-blue-600 transition-colors">{{ ArchivedNotice.title }}</h3>
-                                <p class="text-gray-500 text-xs">{{ ArchivedNotice.created_at }}</p>
+                    <a href="{% url 'notice:archived_notice' ArchivedNotice.id %}">
+                        <div class="stats-card p-4 group hover:shadow-toss-lg transition-all duration-200 cursor-pointer">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-semibold text-mc-blue text-sm group-hover:text-blue-600 transition-colors">{{ ArchivedNotice.title }}</h3>
+                                    <p class="text-gray-500 text-xs">{{ ArchivedNotice.created_at }}</p>
+                                </div>
+                                <span class="text-gray-400">📄</span>
                             </div>
-                            <span class="text-gray-400">📄</span>
                         </div>
-                    </div>
+                    </a>
                 {% empty %}
                     <p>공지사항이 없습니다.</p>
                 {% endfor %}
-                
             </div>
         </div>
     </div>

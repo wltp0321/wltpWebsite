@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}IMPERIUM SERVER - 아카이브 공지사항 ({{ notice.id }}){% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="section-header">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <h1 class="font-pixel text-4xl md:text-6xl mb-6 md:mb-8 tracking-wider text-shadow-pixel">
+            공지사항 상세
+        </h1>
+        <p class="text-lg md:text-xl mb-8 md:mb-12 opacity-90 leading-relaxed max-w-4xl mx-auto px-4">
+            서버의 중요한 소식과 안내를 확인하세요.
+        </p>
+    </div>
+</section>
+
+<!-- Notice Detail Section -->
+<section class="content-section">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="card-component p-8 mb-12 border border-gray-300 rounded-3xl shadow-lg bg-white">
+            <div class="mb-6 flex items-center justify-between">
+                <h2 class="font-pixel text-3xl text-mc-blue font-semibold">{{ notice.title }}</h2>
+                <span class="text-gray-500 text-sm">{{ notice.created_at|date:"Y.m.d H:i" }}</span>
+            </div>
+
+            {% if notice.content0 %}
+            <pre class="text-gray-700 leading-relaxed mb-6 font-sans whitespace-pre-wrap break-words text-lg">
+{{ notice.content0 }}
+            </pre>
+            {% endif %}
+
+            {% if notice.content1 %}
+            <div class="bg-mc-gray rounded-2xl p-6 border border-gray-200">
+                <pre class="text-gray-800 font-sans whitespace-pre-wrap break-words text-base">
+{{ notice.content1 }}
+                </pre>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="text-center">
+            <a href="{% url 'notice:list' %}" class="btn-secondary px-6 py-3 text-lg rounded-xl hover:bg-gray-200 transition">
+                ← 공지 목록으로 돌아가기
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

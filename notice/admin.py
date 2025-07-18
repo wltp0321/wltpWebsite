@@ -19,8 +19,8 @@ def move_notice(request, from_model, to_model, pk):
 
 
 class ImportantNoticeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'move_actions')
-    search_fields = ('title', 'content0', 'content1')
+    list_display = ('id', 'title', 'created_at', 'move_actions')
+    search_fields = ('id', 'title', 'content0', 'content1')
     ordering = ('-created_at',)
 
     def get_urls(self):
@@ -46,8 +46,8 @@ class ImportantNoticeAdmin(admin.ModelAdmin):
 
 
 class NormalNoticeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'move_actions')
-    search_fields = ('title', 'content0', 'content1')
+    list_display = ('id', 'title', 'created_at', 'move_actions')
+    search_fields = ('id', 'title', 'content0', 'content1')
     ordering = ('-created_at',)
 
     def get_urls(self):
@@ -73,8 +73,8 @@ class NormalNoticeAdmin(admin.ModelAdmin):
 
 
 class ArchivedNoticeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'move_actions')
-    search_fields = ('title', 'content0', 'content1')
+    list_display = ('id', 'title', 'created_at', 'move_actions')
+    search_fields = ('id', 'title', 'content0', 'content1')
     ordering = ('-created_at',)
 
     def get_urls(self):
