@@ -21,6 +21,10 @@ from django.conf import settings
 from django.shortcuts import redirect
 from django.views.static import serve
 from django.urls import re_path as url
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import MyModelSitemap
+from django.views.generic import TemplateView
+
 
 from . import views
 from main.views import main_main
@@ -31,12 +35,12 @@ from how_to_join.views import server_how_to_join
 from description.views import server_descriptions
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),  # 관리자 페이지
     path('', main_main, name='main'),  # 메인 페이지
-    path('ads.txt',views.Ads),
-    path('gallery/', gallery_main, name='gallery'),
+    path('ads.txt', views.Ads), 
+    path("robots.txt", views.robots),
+    path("sitemap.xml", views.sitemap,  name="sitemap"),
     path('rules/', server_rule, name='rule'),
     path('descriptions/', server_descriptions, name='descriptions'),
     path('how_to_join/', server_how_to_join, name='how_to_join'),

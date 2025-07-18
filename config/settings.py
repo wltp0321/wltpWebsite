@@ -18,7 +18,7 @@ import json
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = BASE_DIR / "templates"
 
-secret_file = os.path.join(BASE_DIR, 'secrets.json')
+secret_file = os.path.join(BASE_DIR, '../secrets.json')
 
 with open(secret_file) as f:
     secrets = json.loads(f.read())
@@ -38,7 +38,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -69,12 +69,14 @@ INSTALLED_APPS = [
     'how_to_join',
     'description',
     'notice',
+    'config',
     'rule',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'sslserver',
     'widget_tweaks',
