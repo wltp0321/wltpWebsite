@@ -38,7 +38,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -58,6 +58,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # 사용자가 요청할 때마다 세션 시간 초기화 여부
 SESSION_SAVE_EVERY_REQUEST = True
+
+USER_CLEANUP_INTERVAL_SECONDS = 3600
 
 
 INSTALLED_APPS = [
