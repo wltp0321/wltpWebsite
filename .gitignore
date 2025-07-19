@@ -208,3 +208,6 @@ __marimo__/
 
 
 secrets.json
+django.key
+django.crt
+db.sqlite3
