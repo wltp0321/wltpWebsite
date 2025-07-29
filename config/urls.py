@@ -40,7 +40,10 @@ urlpatterns = [
     path('', main_main, name='main'),  # 메인 페이지
     path('ads.txt', views.Ads), 
     path("robots.txt", views.robots),
-    path("sitemap.xml", views.sitemap,  name="sitemap"),
+    path('docs/<int:doc_id>', views.docs_detail_view, name='doc_detail'),
+    path('docs/', views.docs_list, name='docs_list'),
+    # path(".well-known/discord", views.discord),
+    path("sitemap.xml", views.sitemap),
     path('rules/', server_rule, name='rule'),
     path('descriptions/', server_descriptions, name='descriptions'),
     path('how_to_join/', server_how_to_join, name='how_to_join'),

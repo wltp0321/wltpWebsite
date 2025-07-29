@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 {% load static %}
 <html lang="ko">
 <head>
@@ -58,6 +58,8 @@
                     <li><a href="{% url 'ranking:ranking' %}" class="nav-link-component">랭킹</a></li>
                     <li class="hidden md:block text-gray-300">|</li>
                     <li><a href="{% url 'notice:list' %}" class="nav-link-component">공지사항</a></li>
+                    <li class="hidden md:block text-gray-300">|</li>
+                    <li><a href="{% url 'docs_list' %}" class="nav-link-component">문서</a></li>
                     <li class="hidden md:block text-gray-300">|</li>
                     {% if not user.is_authenticated %}
                     <li><a href="{% url 'account:login' %}" class="nav-link-component">로그인</a></li>
