@@ -57,7 +57,7 @@ def signup(request):
             email.content_subtype = "html"  # HTML 형식으로 전송
             email.send()
 
-            return render(request, 'account/signup_succfully.html', {'email': user.email})
+            return render(request, 'account/signup_succfully.html', {'email': user.email, 'recaptcha_site_key': settings.RECAPTCHA_SITE_KEY})
     else:
         form = UserForm()
     return render(request, 'account/signup.html', {'form': form})

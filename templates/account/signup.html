@@ -69,4 +69,16 @@
         </form>
     </div>
 </section>
+<script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_key }}"></script>
+<script>
+grecaptcha.ready(function() {
+  document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // 폼 제출 잠시 막기
+    grecaptcha.execute('{{ recaptcha_site_key }}', {action: 'submit'}).then(function(token) {
+      document.getElementById('g-recaptcha-response').value = token;
+      document.getElementById('myForm').submit();  // 토큰 넣고 폼 제출
+    });
+  });
+});
+</script>
 {% endblock %}

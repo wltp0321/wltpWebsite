@@ -38,7 +38,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -63,6 +63,10 @@ SESSION_SAVE_EVERY_REQUEST = True
 USER_CLEANUP_INTERVAL_SECONDS = 3600
 
 
+RECAPTCHA_SITE_KEY = get_secret("Captcha_Public_KEY")
+RECAPTCHA_PRIVATE_KEY = get_secret("Captcha_Private_KEY")
+
+
 INSTALLED_APPS = [
     'main',
     'ranking',
@@ -73,6 +77,7 @@ INSTALLED_APPS = [
     'notice',
     'config',
     'rule',
+    'snowpenguin.django.recaptcha3',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

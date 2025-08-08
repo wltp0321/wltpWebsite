@@ -36,6 +36,9 @@ aimed at organizing server content and delivering information effectively to the
 - 📱 반응형 디자인 (모바일/PC 대응)  
   Responsive design for mobile and desktop
 
+- 🔐 reCAPTCHA v3 기반 스팸 방지 기능  (테스트되지않음)
+  Spam protection using reCAPTCHA v3 (Not tested)
+
 ---
 
 ## ⚙️ 기술 스택 | Tech Stack
@@ -47,13 +50,13 @@ aimed at organizing server content and delivering information effectively to the
 | 서버 / Server | Hypercorn (ASGI) |
 | 데이터베이스 / Database | SQLite |
 | 배포 / Deployment | Linux 서버 (Self-hosted) |
+| 보안 / Security | Google reCAPTCHA v3 |
 
 ---
 
-## 💻 설치 및 실행 방법 | Setup & Run
+## 📫 문의 및 기여 | Contact & Contribution
 
-### 1️⃣ 저장소 클론 | Clone Repository
+오류 제보, 제안, 또는 기여는 GitHub 이슈 또는 Pull Request로 환영합니다.  
+Bug reports, suggestions, or contributions are welcome via GitHub Issues or Pull Requests.
 
-```bash
-git clone https://github.com/chrishan0321/wltp_website.git
-cd wltp_website
+- GitHub: [https://github.com/chrishan0321/wltp_website](https://github.com/chrishan0321/wltp_website)
