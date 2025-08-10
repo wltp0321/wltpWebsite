@@ -39,9 +39,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),  # 관리자 페이지
     path('', main_main, name='main'),  # 메인 페이지
     path('ads.txt', views.Ads), 
+    path('blog/', include('blog.urls')),
     path("robots.txt", views.robots),
-    path('docs/<int:doc_id>', views.docs_detail_view, name='doc_detail'),
-    path('docs/', views.docs_list, name='docs_list'),
+    # path('docs/<int:doc_id>', views.docs_detail_view, name='doc_detail'),
+    # path('docs/', views.docs_list, name='docs_list'),
+    # path('markdownx/', include('markdownx.urls')),
     # path(".well-known/discord", views.discord),
     path("sitemap.xml", views.sitemap),
     path('rules/', server_rule, name='rule'),
@@ -50,7 +52,7 @@ urlpatterns = [
     path('ranking/', include("ranking.urls")),
     path('notices/', include('notice.urls')),
     path('api/', include('api.urls')),
-    path('account/', include("account.urls")),
+    path('accounts/', include("account.urls")),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]

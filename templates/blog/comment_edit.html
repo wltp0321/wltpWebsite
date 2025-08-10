@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}댓글 수정 - 블로그{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto flex justify-start">
+  <button
+    onclick="history.back()"
+    class="inline-block px-4 py-2 mb-4 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
+    style="transform: translateX(-20px);"
+  >
+    ← 뒤로가기
+  </button>
+</div>
+
+
+<section class="py-12 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+        <h1 class="text-3xl font-bold mb-6">댓글 수정</h1>
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            {{ form.content|add_class:"w-full p-3 border rounded-lg" }}
+            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                수정 완료
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}

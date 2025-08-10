@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}글 삭제 확인 - {{ post.title }}{% endblock %}
+
+{% block content %}
+<section class="max-w-2xl mx-auto p-8 bg-white rounded-xl shadow mt-10">
+    <h1 class="text-2xl font-bold mb-4">글 삭제 확인</h1>
+    <p>정말로 "{{ post.title }}" 글을 삭제하시겠습니까?</p>
+
+    <form method="post" class="mt-6">
+        {% csrf_token %}
+        <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">삭제하기</button>
+        <a href="{% url 'blog:post_detail' post.pk %}" class="ml-4 px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">취소</a>
+    </form>
+</section>
+{% endblock %}

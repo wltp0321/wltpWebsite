@@ -59,7 +59,7 @@
                     <li class="hidden md:block text-gray-300">|</li>
                     <li><a href="{% url 'notice:list' %}" class="nav-link-component">공지사항</a></li>
                     <li class="hidden md:block text-gray-300">|</li>
-                    <li><a href="{% url 'docs_list' %}" class="nav-link-component">문서</a></li>
+                    <li><a href="{% url 'blog:post_list' %}" class="nav-link-component">블로그</a></li>
                     <li class="hidden md:block text-gray-300">|</li>
                     {% if not user.is_authenticated %}
                     <li><a href="{% url 'account:login' %}" class="nav-link-component">로그인</a></li>

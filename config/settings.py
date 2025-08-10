@@ -38,7 +38,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -77,6 +77,8 @@ INSTALLED_APPS = [
     'notice',
     'config',
     'rule',
+    'blog',
+    'markdownx',
     'snowpenguin.django.recaptcha3',
     'django.contrib.admin',
     'django.contrib.auth',
