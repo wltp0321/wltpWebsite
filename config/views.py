@@ -11,7 +11,7 @@ def robots(request):
     lines = [
         "User-agent: *",
         "Disallow: /admin/",
-        "Disallow: /private/",
+        "User-agent: Yeti",
         "Allow: /",
         "Sitemap: https://www.wltp.world/sitemap.xml"
     ]

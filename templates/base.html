@@ -2,9 +2,17 @@
 {% load static %}
 <html lang="ko">
 <head>
+    <meta name="naver-site-verification" content="7f69eabf58f92e64b14587b5969f07fa77bb8ce1" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 브라우저 탭용 title -->
     <title>{% block title %}IMPERIUM SERVER - 마인크래프트 서버{% endblock %}</title>
+    <meta property="og:title" content="{% block og_title %}IMPERIUM SERVER - 마인크래프트 서버{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}IMPERIUM SERVER - 마인크래프트 서버의 공식 서버입니다.{% endblock %}">
+    <meta name="description" content="{% block description %}IMPERIUM SERVER - 마인크래프트 서버의 공식 서버입니다.{% endblock %}">
+
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
