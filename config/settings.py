@@ -180,7 +180,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOCALE_PATHS = (BASE_DIR / "locale",)
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # 배포용 폴더 (임의 지정)
+STATIC_ROOT = BASE_DIR / 'static'  # 배포용 폴더 (임의 지정)
 STATICFILES_DIRS = [str(BASE_DIR / 'static')]  # 개발 중 정적 파일 폴더
 
 
